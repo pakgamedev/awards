@@ -20,8 +20,6 @@
     <!-- Babel for JSX -->
     <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
     
-    <script src="https://app.youform.com/widgets/widget.js"></script> 
-
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
     
@@ -123,10 +121,10 @@
             {
                 id: 1,
                 title: "Award Categories",
-                subtitle: "Vote on and suggets the best game award categories",
+                subtitle: "Vote on and sugget the best game award categories",
                 icon: "fa-solid fa-icons",
                 color: "text-amber-400",
-                url: "mcte2lpw",
+                url: "categories",
                 bgImage: "https://images.unsplash.com/photo-1513151233558-d860c5398176?q=80&w=600&auto=format&fit=crop"
             },
             {
@@ -225,9 +223,8 @@
                             <div className="grid grid-cols-1 gap-4">
                                 {communityLinks.map((link) => (
                                     <a 
-                                        key={link.id} 
-                                        href="#"
-                                        data-youform-open="{link.url}" data-youform-position="center"
+                                        key={link.id}
+                                        href={link.url}
                                         target="_blank"
                                         className="group relative h-64 glass-panel rounded-xl overflow-hidden flex flex-col justify-end p-4 transition-all duration-300 no-underline"
                                     >
