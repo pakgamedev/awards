@@ -130,7 +130,7 @@
             {
                 id: 2,
                 title: "Submit Games",
-                subtitle: "Bring new Pakistani games to our attention",
+                subtitle: "Rules, FAQs and game submission",
                 icon: "fa-solid fa-gamepad",
                 color: "text-red-500",
                 url: "games",
@@ -139,7 +139,7 @@
             {
                 id: 3,
                 title: "Gamers Council",
-                subtitle: "Be part of an exclusive group to vote on the awards",
+                subtitle: "Rules, FAQs, and application for the exclusive voting panel",
                 icon: "fa-solid fa-people-group",
                 color: "text-green-500",
                 url: "gamers",
@@ -147,6 +147,14 @@
             }
         ];
 
+        const timelineDates = [
+            { date: "01 DEC '25", event: "Submissions Open", status: "Current" },
+            { date: "01 JUL", event: "Categories & Jury Announced", status: "Upcoming" },
+            { date: "30 NOV", event: "Submissions Closed & Longlist Announced", status: "Upcoming" },
+            { date: "14 DEC", event: "Nominations Announced", status: "Upcoming" },
+            { date: "25 DEC", event: "Voting Closed", status: "Upcoming" },
+        ];
+        
         const App = () => {
             const [currentTime, setCurrentTime] = useState(new Date());
 
@@ -222,6 +230,44 @@
                             </p>
                         </section>
 
+                        {/* KEY DATES TIMELINE */}
+                        <section className="pt-10">
+                            <div className="flex items-center justify-between mb-8 px-1">
+                                <h3 className="text-xl font-bold tracking-widest uppercase border-l-4 border-yellow-500 pl-3">Key Dates</h3>
+                                <span className="text-xs text-yellow-500 font-bold uppercase tracking-widest">2026 Awards</span>
+                            </div>
+
+                            <div className="grid grid-cols-2 md:grid-cols-5 gap-0 relative">
+                                {timelineDates.map((item, index) => (
+                                    <div key={index} className="relative group p-4 border-l border-white/10 md:border-l-0 md:border-t hover:bg-white/5 transition-colors">
+                                        {/* BAFTA Style Dot */}
+                                        <div className={`hidden md:block absolute -top-1.5 left-0 w-3 h-3 rounded-full border-2 border-black z-20 ${item.status === 'Past' ? 'bg-gray-500' : item.status === 'Current' ? 'bg-yellow-500 shadow-[0_0_10px_#eab308]' : 'bg-white/20'}`}></div>
+                                        
+                                        <div className="space-y-1">
+                                            <span className={`text-2xl font-bold tracking-tighter ${item.status === 'Current' ? 'text-yellow-500' : 'text-white/40'}`}>
+                                                {item.date}
+                                            </span>
+                                            <h4 className={`text-sm font-semibold uppercase tracking-widest leading-tight ${item.status === 'Past' ? 'text-white/30' : 'text-white'}`}>
+                                                {item.event}
+                                            </h4>
+                                            {item.status === 'Current' && (
+                                                <div className="inline-block mt-2 px-2 py-0.5 text-[10px] bg-yellow-500/20 text-yellow-500 border border-yellow-500/30 font-bold uppercase tracking-widest animate-pulse">
+                                                    Live Now
+                                                </div>
+                                            )}
+                                        </div>
+                                    </div>
+                                ))}
+                            </div>
+                        </section>
+                        <section className="justify-center center mb-8">
+                            <h2 className="text-center text-2xl md:text-4xl font-bold mb-2">
+                                27 DECEMBER
+                            </h2>
+                            <h2 className="text-center text-xl md:text-2xl font-bold mb-2">
+                                The Awards Ceremony
+                            </h2>
+                        </section>
                         {/* Quick Links Grid (Horizontal Scroll on Mobile) */}
                         <section>
                             <div className="flex items-end justify-between mb-4 px-1">
@@ -229,7 +275,7 @@
                                 <span className="text-xs text-gray-500 uppercase tracking-widest hidden md:block">Press Start to Join</span>
                             </div>
                             
-                            <div className="grid grid-cols-1 gap-4">
+                            <div className="grid grid-cols-3 gap-4">
                                 {communityLinks.map((link) => (
                                     <a 
                                         key={link.id}
