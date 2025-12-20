@@ -155,6 +155,21 @@
             { date: "25 DEC", event: "Voting Closed", status: "Upcoming" },
         ];
         
+        const faqs = [
+            { q: "How are the games selected?", a: "Anyone can contribute to the longlist of games by submitting them via the link above. Make sure to read and follow the rules there." },
+            { q: "How are the nominations selected?", a: "Nominations will be selected by a jury of select experts. They'll select their favorites in each category and their individual lists will be combined into the final nominations." },
+            { q: "How are the winners selected?", a: "Winners will be voted on by the gamers council and the jury. Gamers council will contribute a 30% weight to the final decision while jury will contribute 70%." },
+            { q: "Why are gamers' choices weighed less than jury?", a: "The jury will consist of a diverse group of experts from different fields like game dev, arts and music and will be considered a bigger authority on the matter." },
+            { q: "How do I join the gamers council?", a: "You can apply to be a part of the gamers council via the link above. Make sure to read and follow the rules there." },
+            { q: "How do I join the jury?", a: "If you have experience in the field or a professional reviewer, you can apply to be a part of the gamers council via the link above and mention your expertise and willingness to join the jury." },
+            { q: "Are there any fees for participating in the awards?", a: "No, nomination and participation in the Pak Game Awards are completely free for all indie developers in Pakistan." },
+            { q: "How many categories can a game be nominated for?", a: "There is no strict limit on nominations per game, but we may adjust them to prevent one or two games from dominating all awards." },
+            { q: "Game Access", a: "Commercial games must provide codes or Steam Playtest access. Non-commercial games must provide a playable build on request. At minimum, a no-commentary full playthrough video is required, but this may disadvantage the game." },
+            { q: "Ad supported or IAP games", a: "If Ad supported or games where essential content is locked behind paid DLC or IAP are too much hassle to review, they will be removed from the longlist." },
+            { q: "When is <blank> going to be announced?", a: "Please see the timeline at the top of the page." },
+            { q: "This leaves me with more questions than answers!", a: ["Join our discord server and post your questions in #game-awards channel: ", <a key="discord" target="_blank" href='https://discord.gg/aRZjDxRCg4'>https://discord.gg/aRZjDxRCg4</a>] },
+        ];
+
         const App = () => {
             const [currentTime, setCurrentTime] = useState(new Date());
 
@@ -305,6 +320,32 @@
                             </div>
                         </section>
 
+                        {/* FAQ SECTION */}
+                        <section className="pt-10">
+                            <div className="flex items-center justify-between mb-8 px-1">
+                                <h3 className="text-xl font-bold tracking-widest uppercase border-l-4 border-cyan-500 pl-3">FAQ</h3>
+                                <div className="h-px flex-grow mx-6 bg-cyan-500/20 hidden md:block"></div>
+                            </div>
+                            
+                            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                                {faqs.map((faq, index) => (
+                                    <div key={index} className="glass-panel p-6 rounded-xl group transition-all duration-300">
+                                        <div className="flex items-start gap-4">
+                                            <span className="text-cyan-500 font-bold text-lg">Q.</span>
+                                            <div>
+                                                <h4 className="text-lg font-bold text-white group-hover:text-cyan-400 transition mb-2">
+                                                    {faq.q}
+                                                </h4>
+                                                <p className="text-gray-400 text-sm leading-relaxed">
+                                                    {faq.a}
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                ))}
+                            </div>
+                        </section>
+                        
                         {/* Footer / Status Bar */}
                         <footer className="mt-12 py-8 border-t border-white/5 flex flex-col md:flex-row justify-between items-center text-gray-500 text-sm">
                             <div className="flex gap-6 mb-4 md:mb-0">
